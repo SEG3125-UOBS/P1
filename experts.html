@@ -6,7 +6,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-
     <title>SEG3125</title>
 </head>
 <body>
@@ -44,11 +43,12 @@
         </div>
         
     </nav>
-    
+
+
     <!-- Main Body -->
 
     <div class="text-center">
-        <h1 class="display-2 my-4">Meet our Dental Experts</h1>
+        <h1 class="display-2 mt-4 mb-2">Meet our Dental Experts</h1>
         <h1 class="display-5 my-2">Book an appointment with a specific dentist</h1>
     </div>
 
@@ -60,29 +60,249 @@
         <div class="col-sm-4 col-12 mt-3">
             <label for="service">Filter by Service (optional): </label>
             <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="service">
-                <option selected>Select a service...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                <option selected>No filter</option>
+                <option value="1">Cleaning</option>
+                <option value="2">Crown</option>
+                <option value="3">Filling</option>
+                <option value="4">Fluoride Treatment</option>
+                <option value="5">Tooth Removal</option>
+                <option value="6">Veneers</option>
+                <option value="7">Whitening</option>
+                <option value="8">Wisdom Tooth Removal</option>
             </select>
         </div>
     </div>
 
-    <div class="container-fluid py-2">
-        <div style="overflow-y: auto; max-height: 50rem; background-color: #bdc1fa;">
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
-            <div class="card card-body">Card</div>
+    <!--Cards -->
+    <div class="container-fluid p-4">
+        <div class="p-2 border border-5" style="overflow-y: auto; max-height: 85vh; background-color: #bdc1fa;">
+            
+            <!--Card-->
+            <div class="card m-1 border border-2">
+                <div class="row g-0">
+                    <!--profile picture-->
+                    <div class="col-md-3 d-md-block d-none">
+                        <div class="m-2" style="min-height: 100%; height: 0;">
+                            <img src="assets/dentist1.jpg" class="img-fluid rounded-start" style="max-height: 100%;" alt="profileImage">
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-md-none">
+                        <img src="assets/dentist1.jpg" class="img-fluid rounded-start" alt="profileImage">
+                    </div>
+                    <!--text-->
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h5 class="card-title">John Doe</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <p><strong>Services</strong></p>
+                                    <ul class="list ms-3 col" style="font-size: 15px;">
+                                        <li>Cleaning </li>
+                                        <li>Fluoride Treatment </li>
+                                        <li>Fillings </li>
+                                        <li>Whitening </li>
+                                        <li>Wisdom Tooth Removal </li>
+                                    </ul>
+                                    </div>
+                                <div class="col">
+                                    <p><strong>Usual Availability</strong></p>
+                                    <div class="row">
+                                        <ul class="list-unstyled ms-3 col" style="font-size: 15px;">
+                                            <li>Monday: </li>
+                                            <li>Tuesday: </li>
+                                            <li>Wednesday: </li>
+                                            <li>Thursday: </li>
+                                            <li>Friday: </li>
+                                            <li>Saturday: </li>
+                                            <li>Sunday: </li>
+                                        </ul>
+                                        <ul class="list-unstyled ms-3 col" style="font-size: 15px;">
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>Out of Office</li>
+                                            <li>10:00-18:00</li>
+                                            <li>Office Closed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end"><a class="btn btn-outline-success mt-4" href="booking.html"> Book an Appointment with John Doe</a></div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Card-->
+            <div class="card m-1  border border-2">
+                <div class="row g-0">
+                    <!--profile picture-->
+                    <div class="col-md-3 d-md-block d-none">
+                        <div class="m-2" style="min-height: 100%; height: 0;">
+                            <img src="assets/dentist2.jpg" class="img-fluid rounded-start" style="max-height: 100%;" alt="profileImage">
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-md-none">
+                        <img src="assets/dentist2.jpg" class="img-fluid rounded-start" alt="profileImage">
+                    </div>
+                    <!--text-->
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h5 class="card-title">Jeremy Smith</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <p><strong>Services</strong></p>
+                                    <ul class="list ms-3 col" style="font-size: 15px;">
+                                        <li>Crowns </li>
+                                        <li>Fluoride Treatment </li>
+                                        <li>Veneers </li>
+                                        <li>Whitening </li>
+                                        <li>Wisdom Tooth Removal </li>
+                                    </ul>
+                                    </div>
+                                <div class="col">
+                                    <p><strong>Usual Availability</strong></p>
+                                    <div class="row">
+                                        <ul class="list-unstyled ms-3 col" style="font-size: 15px;">
+                                            <li>Monday: </li>
+                                            <li>Tuesday: </li>
+                                            <li>Wednesday: </li>
+                                            <li>Thursday: </li>
+                                            <li>Friday: </li>
+                                            <li>Saturday: </li>
+                                            <li>Sunday: </li>
+                                        </ul>
+                                        <ul class="list-unstyled ms-3 col" style="font-size: 15px;">
+                                            <li>10:00-20:00</li>
+                                            <li>Out of Office</li>
+                                            <li>12:00-20:00</li>
+                                            <li>12:00-20:00</li>
+                                            <li>10:00-18:00</li>
+                                            <li>10:00-18:00</li>
+                                            <li>Office Closed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end"><a class="btn btn-outline-success mt-4" href="booking.html"> Book an Appointment with Jeremy Smith</a></div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Card-->
+            <div class="card m-1  border border-2">
+                <div class="row g-0">
+                    <!--profile picture-->
+                    <div class="col-md-3 d-md-block d-none">
+                        <div class="m-2" style="min-height: 100%; height: 0;">
+                            <img src="assets/dentist3.jpg" class="img-fluid rounded-start" style="max-height: 100%;" alt="profileImage">
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-md-none">
+                        <img src="assets/dentist3.jpg" class="img-fluid rounded-start" alt="profileImage">
+                    </div>
+                    <!--text-->
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h5 class="card-title">Jane Doe</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <p><strong>Services</strong></p>
+                                    <ul class="list ms-3 col" style="font-size: 15px;">
+                                        <li>Crowns </li>
+                                        <li>Fillings </li>
+                                        <li>Fluoride Treatment </li>
+                                        <li>Tooth Removal </li>
+                                        <li>Wisdom Tooth Removal </li>
+                                    </ul>
+                                    </div>
+                                <div class="col">
+                                    <p><strong>Usual Availability</strong></p>
+                                    <div class="row">
+                                        <ul class="list-unstyled ms-3 col" style="font-size: 15px;">
+                                            <li>Monday: </li>
+                                            <li>Tuesday: </li>
+                                            <li>Wednesday: </li>
+                                            <li>Thursday: </li>
+                                            <li>Friday: </li>
+                                            <li>Saturday: </li>
+                                            <li>Sunday: </li>
+                                        </ul>
+                                        <ul class="list-unstyled ms-3 col" style="font-size: 15px;">
+                                            <li>12:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-18:00</li>
+                                            <li>Out of Office</li>
+                                            <li>Office Closed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end"><a class="btn btn-outline-success mt-4" href="booking.html"> Book an Appointment with Jane Doe</a></div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card m-1  border border-2">
+                <div class="row g-0">
+                    <!--profile picture-->
+                    <div class="col-md-3 d-md-block d-none">
+                        <div class="m-2" style="min-height: 100%; height: 0;">
+                            <img src="assets/dentist4.jpg" class="img-fluid rounded-start" style="max-height: 100%;" alt="profileImage">
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-md-none">
+                        <img src="assets/dentist4.jpg" class="img-fluid rounded-start" alt="profileImage">
+                    </div>
+                    <!--text-->
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <h5 class="card-title">Nathaniel Gagnon</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <p><strong>Services</strong></p>
+                                    <ul class="list ms-3 col" style="font-size: 15px;">
+                                        <li>Crowns </li>
+                                        <li>Fillings </li>
+                                        <li>Tooth Removal </li>
+                                        <li>Wisdom Tooth Removal </li>
+                                    </ul>
+                                    </div>
+                                <div class="col">
+                                    <p><strong>Usual Availability</strong></p>
+                                    <div class="row">
+                                        <ul class="list-unstyled ms-3 col" style="font-size: 15px;">
+                                            <li>Monday: </li>
+                                            <li>Tuesday: </li>
+                                            <li>Wednesday: </li>
+                                            <li>Thursday: </li>
+                                            <li>Friday: </li>
+                                            <li>Saturday: </li>
+                                            <li>Sunday: </li>
+                                        </ul>
+                                        <ul class="list-unstyled ms-3 col" style="font-size: 15px;">
+                                            <li>12:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-20:00</li>
+                                            <li>10:00-18:00</li>
+                                            <li>Out of Office</li>
+                                            <li>Office Closed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end"><a class="btn btn-outline-success mt-4" href="booking.html"> Book an Appointment with Nathaniel Gagnon</a></div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 

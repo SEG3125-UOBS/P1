@@ -8,6 +8,24 @@
 
     <title>SEG3125</title>
 
+    <!-- Custom script to change the displayed service -->
+    <!-- ToBeFixed: hard coded colouring; using onclick(); storing DOM -->
+    <script>
+        var currentlyDisplayed = 'placeholderDiv';
+        var currentlySelected = null;
+        function switchFunction(divButton,divName) { 
+            if (currentlySelected != null) {
+                currentlySelected.style.color="black"
+            }
+            divButton.style.color="#bdc1fa"
+            currentlySelected = divButton;
+
+            document.getElementById(currentlyDisplayed).style.display="none";
+            document.getElementById(divName).style.display="flex";
+            currentlyDisplayed = divName;
+        }
+    </script>
+
 </head>
 <body>
     <!-- Navbar -->
@@ -66,13 +84,14 @@
             <div class="accordion">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                         Preventative Services
                         </button>
                     </h2>
-                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body">
-            
+                            <button class="btn py-0" onclick="switchFunction(this,'cleaningDiv')">Cleaning</button> <br>
+                            <button class="btn py-0" onclick="switchFunction(this,'fluorideDiv')">Fluoride Treatment</button>
                         </div>
                     </div>
                 </div>
@@ -84,7 +103,8 @@
                     </h2>
                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
-                            
+                            <button class="btn py-0" onclick="switchFunction(this,'fillingDiv')">Fillings</button> <br>
+                            <button class="btn py-0" onclick="switchFunction(this,'crownDiv')">Crowns</button>
                         </div>
                     </div>
                 </div>
@@ -96,7 +116,8 @@
                     </h2>
                     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                         <div class="accordion-body">
-            
+                            <button class="btn py-0" onclick="switchFunction(this,'whiteningDiv')">Whitening</button> <br>
+                            <button class="btn py-0" onclick="switchFunction(this,'veneerDiv')">Veneers</button>
                         </div>
                     </div>
                 </div>
@@ -108,13 +129,107 @@
                     </h2>
                     <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
                         <div class="accordion-body">
-            
+                            <button class="btn py-0" onclick="switchFunction(this,'wisdomDiv')">Wisdom Tooth Removal</button> <br>
+                            <button class="btn py-0" onclick="switchFunction(this,'removalDiv')">Tooth Removal</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-8 d-flex row" style="background-color: #ecf7ff;">
+
+            <!-- All of the possible services are here, but only 1 is shown at a time -->
+            <div id="placeholderDiv">
+                <h1 class="display-4 text-center mt-4">Select a service from the left menu</h1>
+            </div>
+
+            <div id="cleaningDiv" style="display: none;" class="flex-column">
+                <h1 class="display-6 text-center mt-4">Cleaning</h1>
+                <div class="d-flex col m-2 bg-light align-items-stretch">
+                    <p class="m-2">clean</p>
+                </div>
+                <div class="row m-2">
+                    <p class="col">Cost: 500$</p>
+                    <a class="btn col btn-outline-success my-2 my-lg-0" href="booking.html"> Book an Appointment </a>   
+                </div>
+            </div>
+
+            <div id="fluorideDiv" style="display: none;"  class="flex-column">
+                <h1 class="display-6 text-center mt-4">Cleaning</h1>
+                <div class="d-flex col m-2 bg-light align-items-stretch">
+                    <p class="m-2">clean</p>
+                </div>
+                <div class="row m-2">
+                    <p class="col">Cost: 500$</p>
+                    <a class="btn col btn-outline-success my-2 my-lg-0" href="booking.html"> Book an Appointment </a>   
+                </div>
+            </div>
+
+            <div id="fillingDiv" style="display: none;" class="flex-column">
+                <h1 class="display-6 text-center mt-4">Cleaning</h1>
+                <div class="d-flex col m-2 bg-light align-items-stretch">
+                    <p class="m-2">clean</p>
+                </div>
+                <div class="row m-2">
+                    <p class="col">Cost: 500$</p>
+                    <a class="btn col btn-outline-success my-2 my-lg-0" href="booking.html"> Book an Appointment </a>   
+                </div>
+            </div>
+
+            <div id="crownDiv" style="display: none;" class="flex-column">
+                <h1 class="display-6 text-center mt-4">Cleaning</h1>
+                <div class="d-flex col m-2 bg-light align-items-stretch">
+                    <p class="m-2">clean</p>
+                </div>
+                <div class="row m-2">
+                    <p class="col">Cost: 500$</p>
+                    <a class="btn col btn-outline-success my-2 my-lg-0" href="booking.html"> Book an Appointment </a>   
+                </div>
+            </div>
+
+            <div id="whiteningDiv" style="display: none;" class="flex-column">
+                <h1 class="display-6 text-center mt-4">Cleaning</h1>
+                <div class="d-flex col m-2 bg-light align-items-stretch">
+                    <p class="m-2">clean</p>
+                </div>
+                <div class="row m-2">
+                    <p class="col">Cost: 500$</p>
+                    <a class="btn col btn-outline-success my-2 my-lg-0" href="booking.html"> Book an Appointment </a>   
+                </div>
+            </div>
+
+            <div id="veneerDiv" style="display: none;" class="flex-column">
+                <h1 class="display-6 text-center mt-4">Cleaning</h1>
+                <div class="d-flex col m-2 bg-light align-items-stretch">
+                    <p class="m-2">clean</p>
+                </div>
+                <div class="row m-2">
+                    <p class="col">Cost: 500$</p>
+                    <a class="btn col btn-outline-success my-2 my-lg-0" href="booking.html"> Book an Appointment </a>   
+                </div>
+            </div>
+
+            <div id="wisdomDiv" style="display: none;" class="flex-column">
+                <h1 class="display-6 text-center mt-4">Cleaning</h1>
+                <div class="d-flex col m-2 bg-light align-items-stretch">
+                    <p class="m-2">clean</p>
+                </div>
+                <div class="row m-2">
+                    <p class="col">Cost: 500$</p>
+                    <a class="btn col btn-outline-success my-2 my-lg-0" href="booking.html"> Book an Appointment </a>   
+                </div>
+            </div>
+
+            <div id="removalDiv" style="display: none;" class="flex-column">
+                <h1 class="display-6 text-center mt-4">Cleaning</h1>
+                <div class="d-flex col m-2 bg-light align-items-stretch">
+                    <p class="m-2">clean</p>
+                </div>
+                <div class="row m-2">
+                    <p class="col">Cost: 500$</p>
+                    <a class="btn col btn-outline-success my-2 my-lg-0" href="booking.html"> Book an Appointment </a>   
+                </div>
+            </div>
 
         </div>
     </div>
@@ -123,7 +238,7 @@
 
     <h1 class="display-5 text-center">Not sure?</h1>
     <p class="lead text-center">Contact us or Book a free Examination</p>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center m-2">
         <a class="btn col-3 btn-outline-success my-4" href="contact.html"> Contact Us </a>  
         <a class="btn col-3 btn-outline-success my-4" href="booking.html"> Book an appointment </a>  
     </div>

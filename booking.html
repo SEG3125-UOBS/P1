@@ -52,7 +52,7 @@
     </div>
 
     <!-- User Info section -->
-    <div class="container-fluid ">
+    <div class="container-fluid pb-4">
         <div class="row my-4 mx-md-4 mx-sm-2">
             <div class="col-6">
                 <label for="inputName" class="form-label mt-2">Full Name:</label>
@@ -79,7 +79,7 @@
             <!-- Date selector -->
             <!-- Dates before 2023/06/12 are disabled, random dates after it are disabled -->
             <div class="col-md-6 col-sm-12">
-                <h2 class="display-5">Date Picker</h2>
+                <h2 class="display-5 text-center">Pick a date for the Appointment</h2>
                 <div class='input-group date my-4'>
                     <input id="startDate" class="form-control" type="date" min="2023-06-12" max="2024-01-01"/>
                 </div>
@@ -88,26 +88,32 @@
             <div class="col-md-6 col-sm-12">
                 <label for="service">Service: </label>
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="service">
-                    <option selected>Select a service...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <option selected class="text-muted">Select a service...</option>
+                    <option value="1">Cleaning</option>
+                    <option value="2">Crown</option>
+                    <option value="3">Filling</option>
+                    <option value="4">Fluoride Treatment</option>
+                    <option value="5">Tooth Removal</option>
+                    <option value="6">Veneers</option>
+                    <option value="7">Whitening</option>
+                    <option value="8">Wisdom Tooth Removal</option>
                 </select>
 
                 <label for="dentist">Dentist: </label>
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="dentist">
-                    <option selected>Select an expert...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                    <option selected class="text-muted">Select an expert...</option>
+                    <option value="1">John Doe</option>
+                    <option value="2">Jeremy Smith</option>
+                    <option value="3">Jane Doe</option>
+                    <option value="4">Nathaniel Gagnon</option>
                 </select>
 
-                <label for="time">Appointment Time: </label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="time">
-                    <option selected>Select a time...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
+                <label for="time">Available Appointment Times: </label>
+                <select class="form-select form-select-lg mb-3" multiple aria-label=".form-select-lg" id="time">
+                    <option selected class="text-muted">Select a time...</option>
+                    <option value="1">10:00-11:00</option>
+                    <option value="2">11:00-12:00</option>
+                    <option value="3">16:00-17:00</option>
                 </select>
 
             </div>
