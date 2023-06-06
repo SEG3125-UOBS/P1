@@ -9,20 +9,46 @@
     <title>SEG3125</title>
 
     <!-- Custom script to change the displayed service -->
-    <!-- ToBeFixed: hard coded colouring; using onclick(); storing DOM -->
+    <!-- ToBeFixed: hard coded colouring; using onclick(); hard coded IDs -->
     <script>
         var currentlyDisplayed = 'placeholderDiv';
         var currentlySelected = null;
-        function switchFunction(divButton,divName) { 
+        function switchFunction(divName) { 
+            var newSelection = divName+'Btn';
             if (currentlySelected != null) {
-                currentlySelected.style.color="black"
+                document.getElementById(currentlySelected).style.color="black"
             }
-            divButton.style.color="#bdc1fa"
-            currentlySelected = divButton;
+            document.getElementById(newSelection).style.color="#bdc1fa"
+            currentlySelected = newSelection;
 
             document.getElementById(currentlyDisplayed).style.display="none";
             document.getElementById(divName).style.display="flex";
             currentlyDisplayed = divName;
+        }
+    </script>
+
+    <!-- Custom script for the search bar -->
+    <script>
+        const datalistMap = new Map([['Cleaning','cleaningDiv'],
+                                    ['Fluoride Treatment','fluorideDiv'],
+                                    ['Fillings','fillingDiv'],
+                                    ['Crowns','crownDiv'],
+                                    ['Whitening','whiteningDiv'],
+                                    ['Veneers','veneerDiv'],
+                                    ['Wisdom Tooth Removal','wisdomDiv'],
+                                    ['Tooth Removal','removalDiv']])
+        function onInput() {
+            var val = document.getElementById("dataList").value;
+            var opts = document.getElementById('datalistOptions').childNodes;
+            for (var i = 0; i < opts.length; i++) {
+                if (opts[i].value === val) {
+                    
+                    
+                    switchFunction(datalistMap.get(opts[i].value));
+
+                    break;
+                }
+            }
         }
     </script>
 
@@ -72,9 +98,20 @@
 
     <!-- Service search bar -->
 
+
     <form class="form-group container-lg my-3">
-        <label for="serviceSearch"> Search for services:  </label>
-        <input class="form-control mr-sm-2" type="search" id="serviceSearch" placeholder="Search" aria-label="Search">
+        <label for="dataList"> Search for services:  </label>
+        <input class="form-control mr-sm-2" oninput='onInput()' list="datalistOptions" id="dataList" placeholder="Type to search...">
+        <datalist id="datalistOptions">
+            <option value="Cleaning">
+            <option value="Fluoride Treatment">
+            <option value="Fillings">
+            <option value="Crowns">
+            <option value="Whitening">
+            <option value="Veneers">
+            <option value="Wisdom Tooth Removal">
+            <option value="Tooth Removal">
+        </datalist>
     </form>
 
     <!-- nested accordion -->
@@ -90,8 +127,8 @@
                     </h2>
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body">
-                            <button class="btn py-0" onclick="switchFunction(this,'cleaningDiv')">Cleaning</button> <br>
-                            <button class="btn py-0" onclick="switchFunction(this,'fluorideDiv')">Fluoride Treatment</button>
+                            <button class="btn py-0" id='cleaningDivBtn' onclick="switchFunction('cleaningDiv')">Cleaning</button> <br>
+                            <button class="btn py-0" id='fluorideDivBtn' onclick="switchFunction('fluorideDiv')">Fluoride Treatment</button>
                         </div>
                     </div>
                 </div>
@@ -103,8 +140,8 @@
                     </h2>
                     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                         <div class="accordion-body">
-                            <button class="btn py-0" onclick="switchFunction(this,'fillingDiv')">Fillings</button> <br>
-                            <button class="btn py-0" onclick="switchFunction(this,'crownDiv')">Crowns</button>
+                            <button class="btn py-0" id='fillingDivBtn' onclick="switchFunction('fillingDiv')">Fillings</button> <br>
+                            <button class="btn py-0" id='crownDivBtn' onclick="switchFunction('crownDiv')">Crowns</button>
                         </div>
                     </div>
                 </div>
@@ -116,8 +153,8 @@
                     </h2>
                     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                         <div class="accordion-body">
-                            <button class="btn py-0" onclick="switchFunction(this,'whiteningDiv')">Whitening</button> <br>
-                            <button class="btn py-0" onclick="switchFunction(this,'veneerDiv')">Veneers</button>
+                            <button class="btn py-0" id='whiteningDivBtn' onclick="switchFunction('whiteningDiv')">Whitening</button> <br>
+                            <button class="btn py-0" id='veneerDivBtn' onclick="switchFunction('veneerDiv')">Veneers</button>
                         </div>
                     </div>
                 </div>
@@ -129,8 +166,8 @@
                     </h2>
                     <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
                         <div class="accordion-body">
-                            <button class="btn py-0" onclick="switchFunction(this,'wisdomDiv')">Wisdom Tooth Removal</button> <br>
-                            <button class="btn py-0" onclick="switchFunction(this,'removalDiv')">Tooth Removal</button>
+                            <button class="btn py-0" id='wisdomDivBtn' onclick="switchFunction('wisdomDiv')">Wisdom Tooth Removal</button> <br>
+                            <button class="btn py-0" id='removalDivBtn' onclick="switchFunction('removalDiv')">Tooth Removal</button>
                         </div>
                     </div>
                 </div>
