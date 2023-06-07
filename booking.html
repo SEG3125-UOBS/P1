@@ -23,13 +23,29 @@
             //This gets the day of the week: 0-sunday, 6-saturday
             var dayOfWeek = (day + Math.floor((2.6*month) - 0.2) - 2*century + year + Math.floor(year/4) + Math.floor(century/4))%7;
 
-            var dentistSelect = document.getElementById("dentist");
             document.querySelectorAll("#dentist option").forEach(opt => {
                 if (opt.value == "john" && ([0,5].includes(dayOfWeek) || !['1','4','5','8','9','3'].includes(service))) {opt.disabled = true;}
                 else if (opt.value == "jeremy" && ([0,2].includes(dayOfWeek) || !['2','5','7','8','9','3'].includes(service))) {opt.disabled = true;}
                 else if (opt.value == "jane" && ([0,6].includes(dayOfWeek) || !['2','4','5','6','9','3'].includes(service))) {opt.disabled = true;}
                 else if (opt.value == "nathaniel" && ([0,6].includes(dayOfWeek) || !['2','4','6','9','3'].includes(service))) {opt.disabled = true;}
                 else {opt.disabled = false;}
+            });
+        }
+
+    </script>
+
+    <!-- Custom script to change the possible services -->
+    <!-- If the service is not available by the selected dentist, it is disabled -->
+    <script>
+        function changeServices(){
+            var dentist =  document.getElementById("dentist").value;
+
+            document.querySelectorAll("#service option").forEach(opt => {
+                if (dentist == "john" && (['1','4','5','8','9','3'].includes(opt.value))) {opt.disabled = false;}
+                else if (dentist == "jeremy" && (['2','5','7','8','9','3'].includes(opt.value))) {opt.disabled = false;}
+                else if (dentist == "jane" && (['2','4','5','6','9','3'].includes(opt.value))) {opt.disabled = false;}
+                else if (dentist == "nathaniel" && (['2','4','6','9','3'].includes(opt.value))) {opt.disabled = false;}
+                else {opt.disabled = true;}
             });
         }
 
@@ -128,7 +144,7 @@
                 </select>
 
                 <label for="dentist">Dentist: </label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="dentist">
+                <select class="form-select form-select-lg mb-3" onchange="changeServices()" aria-label=".form-select-lg" id="dentist">
                     <option selected class="text-muted">Select an expert...</option>
                     <option value="john">John Doe</option>
                     <option value="jeremy">Jeremy Smith</option>
