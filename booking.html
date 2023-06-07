@@ -8,6 +8,33 @@
 
     <title>SEG3125</title>
 
+    <!-- Custom script to change the possible dentists -->
+    <!-- If the dentist is not available on a certain day for a service, the option to select them will be disabled -->
+    <!-- ToBeImproved: readability -->
+    <script>
+        function changeExperts(){
+            var service =  document.getElementById("service").value;
+
+            var date =  document.getElementById("appointDate").value;
+            var century = parseInt(date.substring(0,2));
+            var year = parseInt(date.substring(2,4));
+            var month = (12+(parseInt(date.substring(5,7))-2))%12;
+            var day = parseInt(date.substring(8,10));
+            //This gets the day of the week: 0-sunday, 6-saturday
+            var dayOfWeek = (day + Math.floor((2.6*month) - 0.2) - 2*century + year + Math.floor(year/4) + Math.floor(century/4))%7;
+
+            var dentistSelect = document.getElementById("dentist");
+            document.querySelectorAll("#dentist option").forEach(opt => {
+                if (opt.value == "john" && ([0,5].includes(dayOfWeek) || !['1','4','5','8','9','3'].includes(service))) {opt.disabled = true;}
+                else if (opt.value == "jeremy" && ([0,2].includes(dayOfWeek) || !['2','5','7','8','9','3'].includes(service))) {opt.disabled = true;}
+                else if (opt.value == "jane" && ([0,6].includes(dayOfWeek) || !['2','4','5','6','9','3'].includes(service))) {opt.disabled = true;}
+                else if (opt.value == "nathaniel" && ([0,6].includes(dayOfWeek) || !['2','4','6','9','3'].includes(service))) {opt.disabled = true;}
+                else {opt.disabled = false;}
+            });
+        }
+
+    </script>
+
 </head>
 <body>
     <!-- Navbar -->
@@ -81,32 +108,32 @@
             <div class="col-md-6 col-sm-12">
                 <h2 class="display-5 text-center">Pick a date for the Appointment</h2>
                 <div class='input-group date my-4'>
-                    <input id="startDate" class="form-control" type="date" min="2023-06-12" max="2024-01-01"/>
+                    <input id="appointDate" onchange="changeExperts()" class="form-control" type="date" min="2023-06-12" max="2024-01-01"/>
                 </div>
             </div>
 
             <div class="col-md-6 col-sm-12">
                 <label for="service">Service: </label>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="service">
+                <select class="form-select form-select-lg mb-3" onchange="changeExperts()" aria-label=".form-select-lg" id="service">
                     <option selected class="text-muted">Select a service...</option>
                     <option value="1">Cleaning</option>
                     <option value="2">Crown</option>
-                    <option value="3">Filling</option>
-                    <option value="4">Fluoride Treatment</option>
-                    <option value="5">Tooth Removal</option>
-                    <option value="6">Veneers</option>
-                    <option value="7">Whitening</option>
-                    <option value="8">Wisdom Tooth Removal</option>
-                    <option value="9">Examination</option>
+                    <option value="3">Examination</option>
+                    <option value="4">Filling</option>
+                    <option value="5">Fluoride Treatment</option>
+                    <option value="6">Tooth Removal</option>
+                    <option value="7">Veneers</option>
+                    <option value="8">Whitening</option>
+                    <option value="9">Wisdom Tooth Removal</option>
                 </select>
 
                 <label for="dentist">Dentist: </label>
                 <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg" id="dentist">
                     <option selected class="text-muted">Select an expert...</option>
-                    <option value="1">John Doe</option>
-                    <option value="2">Jeremy Smith</option>
-                    <option value="3">Jane Doe</option>
-                    <option value="4">Nathaniel Gagnon</option>
+                    <option value="john">John Doe</option>
+                    <option value="jeremy">Jeremy Smith</option>
+                    <option value="jane">Jane Doe</option>
+                    <option value="nathaniel">Nathaniel Gagnon</option>
                 </select>
 
                 <label for="time">Available Appointment Times: </label>
